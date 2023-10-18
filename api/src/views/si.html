@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- Google Font: Source Sans Pro -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="../public/templates/AdminLTE-3.2.0/plugins/fontawesome-free/css/all.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../public/templates/AdminLTE-3.2.0/dist/css/adminlte.min.css">
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="col-md-6">
+            <div class="container-fluid">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title"> Ingrese datos</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <form id="cabeceraForm" onsubmit="this.disabled=true;">
+    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="Identificacion">Identificación:</label>
+                                                <input class="form-control" type="text" id="Identificacion"
+                                                    name="Identificacion" required>
+                                            </div>
+                                        </div>
+    
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="NombresApellidos">Nombres y Apellidos:</label>
+                                                <input class="form-control" type="text" id="NombresApellidos"
+                                                    name="NombresApellidos" required>
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <br>
+                                                <label for="Sexo">Sexo:</label>
+                                                <select id="Sexo" name="Sexo" required>
+                                                    <option value="Masculino">Masculino</option>
+                                                    <option value="Femenino">Femenino</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="from-group">
+                                                <label for="Correo">Correo:</label>
+                                                <input class="form-control" type="email" id="Correo" name="Correo"
+                                                    required><br><br>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="Telefonos">Teléfonos:</label>
+                                            <input class="form-control" type="text" id="Telefonos" name="Telefonos"
+                                                required><br><br>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <label for="total">Total:</label>
+                                        <p id="total" ></p>
+                                        <input type="text" disabled>
+                                    </div>
+                                    <button type="submit">Guardar Cabecera</button>
+                                </form>
+                            </div>
+                        </div>
+    
+                    </div>
+    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        <div class="col-md-6">
+            <div class="card card-primary">
+                <div class="card-header">
+                    <h3 class="card-title"> Ingrese detalle</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <form id="detalleForm">
+                                <div class="card card-primary">
+
+                                    <div class="card-body">
+
+                                        <div class="form-group">
+                                            <label for="CodigoArticulo">Codigo Articulo:</label>
+                                            <input class="form-control" type="text" id="CodigoArticulo"
+                                                name="CodigoArticulo" required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="DescripcionArticulo">Descripción Articulo:</label>
+                                            <input class="form-control" type="text" id="DescripcionArticulo"
+                                                name="DescripcionArticulo" required>
+                                        </div>
+
+
+                                        <div class="form-group">
+                                            <label for="Cantidad">Cantidad:</label>
+                                            <input class="form-control" type="text" id="Cantidad" name="Cantidad"
+                                                required>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="Precio">Precio:</label>
+                                            <input class="form-control" type="text" id="Precio" name="Precio" required>
+                                        </div>
+
+                                        <button id="add">Agregar a TABLA DETALLE</button>
+                                    </div>
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="col-md-6">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Cabecera creada:</h3>
+            </div>
+            <div class="card-body">
+                <table id="cabeceraTable" class="table">
+                    <thead>
+                        <tr>
+                            <th>Código Artículo</th>
+                            <th>Descripción Artículo</th>
+                            <th>Cantidad</th>
+                            <th>Precio</th>
+                            <th>SubTotal</th>
+                            <th>Opcion</th>
+                        </tr>
+                    </thead>
+                    <tbody id="cuerpo-tabla">
+                        <!-- Filas de la tabla se generarán dinámicamente -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="/script.js"></script>
+       
+
+    </script>
+</body>
+
+</html>
